@@ -12,17 +12,13 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan("com.example")
-//
-//
-@Import({ MessageConfig.class, PersistenceJPAConfig.class, DomainMockConfig.class })
-public class AppConfig {
 
+@Import({ MessageConfig.class, DomainMockConfig.class })
+public class AppConfig {
 
     @Bean
     public AppSpring createAppSpring(){
         return new AppSpring();
     }
-
-
 
 }
