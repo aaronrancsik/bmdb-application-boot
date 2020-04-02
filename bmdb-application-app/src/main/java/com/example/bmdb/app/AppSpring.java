@@ -7,6 +7,7 @@ import com.example.bmdb.config.AppConfig;
 
 import com.example.bmdb.models.*;
 import com.example.bmdb.services.*;
+import com.example.bmdb.services.user.UserService;
 import com.example.bmdb.view.View;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -71,7 +72,12 @@ public class AppSpring {
         view.printRegistration();
         log.info("createUser");
         User user = this.view.readUserData();
-        userService.saveUser(user);
+
+        try {
+            userService.save(user);
+        }catch (Exception ex){
+
+        }
         view.printWelcomeMessage(user);
         return user;
     }

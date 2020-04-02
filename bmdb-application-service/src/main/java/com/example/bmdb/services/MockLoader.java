@@ -4,6 +4,7 @@ import com.example.bmdb.models.Actor;
 import com.example.bmdb.models.Media;
 import com.example.bmdb.models.Review;
 import com.example.bmdb.models.User;
+import com.example.bmdb.services.user.UserService;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;

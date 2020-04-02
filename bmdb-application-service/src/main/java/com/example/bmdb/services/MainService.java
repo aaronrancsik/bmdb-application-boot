@@ -3,6 +3,7 @@ package com.example.bmdb.services;
 
 import com.example.bmdb.models.*;
 
+import com.example.bmdb.services.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -41,7 +42,7 @@ public class MainService {
                 .withText(reviewText)
                 .withRating(rating)
                 .withMedia(media)
-                .withCreator(userService.findUser(email,pass))
+                .withCreator(userService.findByEmailAndPassword(email,pass))
                 .build();
         media.addReview(review);
         reviewService.save(review);
