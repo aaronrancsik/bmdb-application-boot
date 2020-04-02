@@ -9,15 +9,24 @@
     </parent>
     <packaging>war</packaging>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>bmdb-application-web</artifactId>
 
     <dependencies>
+
+        <!-- for JSP  statements -->
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>jstl</artifactId>
+        </dependency>
+
+        <!-- JSP compile -->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
