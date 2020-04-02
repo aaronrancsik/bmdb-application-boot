@@ -69,7 +69,7 @@ public class User {
         private String password;
         private Collection<Review> reviews;
 
-        private UserBuilder() {
+        public UserBuilder() {
 
         }
 
