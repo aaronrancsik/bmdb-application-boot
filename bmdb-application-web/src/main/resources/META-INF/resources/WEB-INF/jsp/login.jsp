@@ -17,7 +17,7 @@
                     <form method="POST" action="${contextPath}/login" class="form-signin">
                         <div class="form-group ${error != null ? 'has-error' : ''}">
                             <span>${message}</span>
-                            <input name="username" type="text" class="form-control" placeholder="Username"
+                            <input name="username" type="email" class="form-control" placeholder="Email"
                                    autofocus="true"/>
                         </div>
                         <div class="form-group">
