@@ -25,8 +25,12 @@ public class RegisterController {
         this.userService = userService;
     }
 
-    @Inject
+
     private UserValidator userValidator;
+    @Inject
+    public void setUserValidator(UserValidator userValidator) {
+        this.userValidator = userValidator;
+    }
 
     @GetMapping("/register")
     public String register(Model model) {

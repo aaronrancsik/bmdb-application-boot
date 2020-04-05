@@ -6,12 +6,6 @@
            uri = "http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <t:loginRegistationWrapper>
-    <c:if test="${ true }" >
-        This true
-    </c:if>
-    <c:if test="${ false }" >
-        This false
-    </c:if>
     <div class="row">
         <div class="col-lg-4 col-md-12">
             <div class="card">

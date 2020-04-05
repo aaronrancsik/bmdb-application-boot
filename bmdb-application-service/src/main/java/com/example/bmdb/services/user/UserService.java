@@ -74,4 +74,8 @@ public class UserService {
         return repository.findByEmail(email);
     }
 
+    public void setUserInfoById(String email, String username, long id){
+        repository.setUserInfoById(email,username,id);
+    }
+
 }
