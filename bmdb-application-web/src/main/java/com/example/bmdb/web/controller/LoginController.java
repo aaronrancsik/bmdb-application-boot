@@ -14,9 +14,6 @@ import javax.inject.Inject;
 @Controller
 public class LoginController {
 
-    @Inject
-    private SecurityService securityService;
-
     private I18nMsg i18nMsg;
     @Inject
     public void setI18nMsg(I18nMsg i18nMsg) {
