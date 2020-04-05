@@ -40,7 +40,7 @@
                                 <form:errors path="password"/>
                             </spring:bind>
                         </div>
-                        <button type="submit" class="btn bg-primary">Login</button>
+                        <button type="submit" class="btn bg-primary">Register</button>
                     </form:form>
                 </div>
             </div>
