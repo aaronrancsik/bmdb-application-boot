@@ -1,9 +1,9 @@
 package com.example.bmdb.config;
 
 import com.example.bmdb.models.*;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
 
 
 import javax.inject.Inject;
@@ -220,7 +220,7 @@ public class DomainMockConfig {
         return userBuilder
                 .withName("Alma")
                 .withEmail("alma@ealma.com")
-                .withPassword("batman")
+                .withPassword("batman12")
                 .withReviews(new ArrayList<>())
                 .build();
     }
@@ -239,7 +239,7 @@ public class DomainMockConfig {
         return userBuilder
                 .withName("Peel")
                 .withEmail("peel@peel.com")
-                .withPassword("brown")
+                .withPassword("brown777")
                 .build();
     }
 
