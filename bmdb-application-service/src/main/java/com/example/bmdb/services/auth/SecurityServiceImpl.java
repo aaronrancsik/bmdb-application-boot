@@ -11,9 +11,6 @@ import javax.inject.Inject;
 
 @Service
 public class SecurityServiceImpl implements SecurityService{
-
-
-
     @Inject
     private AuthenticationManager authenticationManager;
 
@@ -34,13 +31,5 @@ public class SecurityServiceImpl implements SecurityService{
 
     @Override
     public void autoLogin(String email, String password) {
-        UserDetails userDetails = userService.loadUserByUsername(email);
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
-
-        authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-        if (usernamePasswordAuthenticationToken.isAuthenticated()) {
-            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-            logger.debug(String.format("Auto login %s successfully!", email));
-        }
     }
 }
