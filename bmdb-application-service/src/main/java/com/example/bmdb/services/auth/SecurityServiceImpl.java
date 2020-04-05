@@ -10,7 +10,9 @@ import org.springframework.stereotype.Service;
 import javax.inject.Inject;
 
 @Service
-public class SecurityServiceImp implements SecurityService{
+public class SecurityServiceImpl implements SecurityService{
+
+
 
     @Inject
     private AuthenticationManager authenticationManager;
@@ -18,7 +20,7 @@ public class SecurityServiceImp implements SecurityService{
     @Inject
     private UserDetailsServiceImpl userService;
 
-    private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImp.class);
+    private static final Logger logger = LoggerFactory.getLogger(SecurityServiceImpl.class);
 
     @Override
     public String findLoggedInUsername() {
@@ -26,9 +28,9 @@ public class SecurityServiceImp implements SecurityService{
         if (userDetails instanceof UserDetails) {
             return ((UserDetails)userDetails).getUsername();
         }
-
         return null;
     }
+
 
     @Override
     public void autoLogin(String email, String password) {
@@ -36,7 +38,6 @@ public class SecurityServiceImp implements SecurityService{
         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);
-
         if (usernamePasswordAuthenticationToken.isAuthenticated()) {
             SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
             logger.debug(String.format("Auto login %s successfully!", email));

@@ -1,6 +1,7 @@
 package com.example.bmdb.web.controller;
 
 import com.example.bmdb.models.User;
+import com.example.bmdb.services.auth.SecurityService;
 import com.example.bmdb.services.user.UserService;
 import com.example.bmdb.services.errors.EmailExistException;
 import com.example.bmdb.services.auth.UserValidator;
@@ -13,6 +14,10 @@ import javax.inject.Inject;
 
 @Controller
 public class RegisterController {
+
+    @Inject
+    private SecurityService securityService;
+
 
     UserService userService;
     @Inject
@@ -40,6 +45,6 @@ public class RegisterController {
         } catch (EmailExistException e) {
             return "register";
         }
-        return "redirect:login";
+        return "redirect:/login";
     }
 }

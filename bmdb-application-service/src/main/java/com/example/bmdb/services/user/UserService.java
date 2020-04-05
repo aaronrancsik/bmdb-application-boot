@@ -5,16 +5,26 @@ import com.example.bmdb.repository.UserRepository;
 import com.example.bmdb.services.errors.EmailExistException;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
+import java.net.ConnectException;
+import java.util.Arrays;
 import java.util.List;
 
 @Service
 public class UserService {
 
-    private UserRepository repository;
 
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+    @Inject
+    public void setbCryptPasswordEncoder(BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
+    }
+
+
+    private UserRepository repository;
     @Inject
     public void setRepository(UserRepository repository) {
         this.repository = repository;
@@ -27,6 +37,7 @@ public class UserService {
     }
 
     public void save(User user) throws EmailExistException {
+        passToHash(Arrays.asList(user));
         try{
             repository.save(user);
         }
@@ -40,9 +51,15 @@ public class UserService {
         return repository.findByEmailAndPassword(email, password);
     }
 
-
     public void saveAll(Iterable<User> userList) {
+        passToHash(userList);
         repository.saveAll(userList);
+    }
+
+    private void passToHash(Iterable<User> userList) {
+        for(var u: userList){
+            u.setPassword(bCryptPasswordEncoder.encode(u.getPassword()));
+        }
     }
 
     public User findById(Long id) {
