@@ -10,7 +10,7 @@ import javax.inject.Inject;
 
 
 @Controller
-public class HelloController {
+public class HomeController {
 
 
     private MediaService mediaService;
@@ -19,12 +19,13 @@ public class HelloController {
         this.mediaService = mediaService;
     }
 
-
-    @RequestMapping({"/", "/hello"})
-    public String hello(Model model, @RequestParam(value="name", required=false, defaultValue="World") String name) {
+    @RequestMapping({"/"})
+    public String hello(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
         var allMedia = mediaService.findAll();
-        model.addAttribute("name", allMedia.iterator().next().getTitle());
-        return "hello";
+        model.addAttribute("name", name);
+        model.addAttribute("movie", allMedia.iterator().next().getTitle());
+        return "home";
     }
+
 
 }
