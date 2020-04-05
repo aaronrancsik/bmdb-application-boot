@@ -16,6 +16,7 @@ import javax.inject.Inject;
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
     @Qualifier("userDetailsServiceImpl")
     @Inject
     private UserDetailsService userDetailsService;
@@ -29,15 +30,15 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/resources/**", "/register").permitAll()
-                .anyRequest().authenticated()
-                .and()
+                    .antMatchers("/resources/**", "/register").permitAll()
+                    .anyRequest().authenticated()
+                    .and()
                 .formLogin()
-                .loginPage("/login")
-                .permitAll()
-                .and()
+                    .loginPage("/login")
+                    .permitAll()
+                    .and()
                 .logout()
-                .permitAll();
+                    .permitAll();
     }
 
     @Bean
