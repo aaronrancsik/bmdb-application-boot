@@ -18,8 +18,8 @@ public class User {
 
     private String name;
 
-    @Column(unique=true)
-    private  String email;
+    @Column(unique = true)
+    private String email;
 
     private String password;
 
@@ -65,7 +65,7 @@ public class User {
     @Component
     public static class UserBuilder {
         private String name;
-        private  String email;
+        private String email;
         private String password;
         private Collection<Review> reviews;
 

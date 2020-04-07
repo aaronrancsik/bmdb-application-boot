@@ -4,34 +4,36 @@ import com.example.bmdb.models.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-
-
 import javax.inject.Inject;
-import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 @Configuration
 public class DomainMockConfig {
 
     private Actor.ActorBuilder actorBuilder;
+
     @Inject
     public void setActorBuilder(Actor.ActorBuilder actorBuilder) {
         this.actorBuilder = actorBuilder;
     }
 
     private Media.MediaBuilder mediaBuilder;
+
     @Inject
     public void setMediaBuilder(Media.MediaBuilder mediaBuilder) {
         this.mediaBuilder = mediaBuilder;
     }
 
     private User.UserBuilder userBuilder;
+
     @Inject
     public void setUserBuilder(User.UserBuilder userBuilder) {
         this.userBuilder = userBuilder;
     }
 
     private Review.ReviewBuilder reviewBuilder;
+
     @Inject
     public void setReviewBuilder(Review.ReviewBuilder reviewBuilder) {
         this.reviewBuilder = reviewBuilder;
@@ -40,7 +42,7 @@ public class DomainMockConfig {
     private Calendar cal = Calendar.getInstance();
 
     @Bean
-    public Actor createActor0(){
+    public Actor createActor0() {
         cal.set(1910, 1, 11);
         return actorBuilder
                 .withName("Actor 1")
@@ -52,7 +54,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor1(){
+    public Actor createActor1() {
         cal.set(1920, 2, 12);
         return actorBuilder
                 .withName("Actor 2")
@@ -64,7 +66,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor2(){
+    public Actor createActor2() {
         cal.set(1930, 3, 13);
         return actorBuilder
                 .withName("Actor 3")
@@ -76,7 +78,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor3(){
+    public Actor createActor3() {
         cal.set(1940, 4, 14);
         return actorBuilder
                 .withName("Actor 4")
@@ -87,7 +89,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor4(){
+    public Actor createActor4() {
         cal.set(1950, 5, 15);
         return actorBuilder
                 .withName("Actor 5")
@@ -98,7 +100,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor5(){
+    public Actor createActor5() {
         cal.set(1960, 6, 16);
         return actorBuilder
                 .withName("Actor 6")
@@ -109,7 +111,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor6(){
+    public Actor createActor6() {
         cal.set(1970, 7, 17);
         return actorBuilder
                 .withName("Actor 7")
@@ -118,8 +120,9 @@ public class DomainMockConfig {
                 .withBiography("Bio Bullshit 7")
                 .build();
     }
+
     @Bean
-    public Actor createActor7(){
+    public Actor createActor7() {
         cal.set(1980, 8, 18);
         return actorBuilder
                 .withName("Actor 8")
@@ -128,8 +131,9 @@ public class DomainMockConfig {
                 .withBiography("Bio Bullshit 8")
                 .build();
     }
+
     @Bean
-    public Actor createActor8(){
+    public Actor createActor8() {
         cal.set(1990, 9, 19);
         return actorBuilder
                 .withName("Actor 9")
@@ -140,7 +144,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Actor createActor9(){
+    public Actor createActor9() {
         cal.set(2000, 10, 20);
         return actorBuilder
                 .withName("Actor 10")
@@ -151,8 +155,8 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Media createMedia0(){
-        cal.set(2011,1,21);
+    public Media createMedia0() {
+        cal.set(2011, 1, 21);
         return mediaBuilder
                 .withTitle("Movie 1")
                 .withDescription("Super description 1")
@@ -164,7 +168,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Media createMedia1(){
+    public Media createMedia1() {
         cal.set(2011, 2, 22);
         return mediaBuilder
                 .withTitle("Movie 2")
@@ -177,7 +181,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Media createMedia2(){
+    public Media createMedia2() {
         cal.set(2013, 3, 23);
         return mediaBuilder
                 .withTitle("Movie 3")
@@ -190,7 +194,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Media createMedia3(){
+    public Media createMedia3() {
         cal.set(2014, 4, 24);
         return mediaBuilder
                 .withTitle("Movie 4")
@@ -203,7 +207,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Media createMedia4(){
+    public Media createMedia4() {
         cal.set(2015, 5, 15);
         return mediaBuilder
                 .withTitle("Movie 5")
@@ -244,7 +248,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview0(){
+    public Review createReview0() {
         return reviewBuilder
                 .withText("rev 1")
                 .withCreator(createUser0())
@@ -255,7 +259,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview1(){
+    public Review createReview1() {
         return reviewBuilder
                 .withText("rev 2")
                 .withCreator(createUser0())
@@ -265,7 +269,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview2(){
+    public Review createReview2() {
         return reviewBuilder
                 .withText("rev 3")
                 .withCreator(createUser1())
@@ -275,7 +279,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview3(){
+    public Review createReview3() {
         return reviewBuilder
                 .withText("rev 4")
                 .withCreator(createUser1())
@@ -285,7 +289,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview4(){
+    public Review createReview4() {
         return reviewBuilder
                 .withText("rev 5")
                 .withCreator(createUser2())
@@ -295,7 +299,7 @@ public class DomainMockConfig {
     }
 
     @Bean
-    public Review createReview5(){
+    public Review createReview5() {
         return reviewBuilder
                 .withText("rev 6")
                 .withCreator(createUser2())

@@ -7,7 +7,7 @@
 <%@ taglib prefix="fn"
            uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:bootstarpWrapper>
+<t:bootstrapWrapper>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
         <a class="navbar-brand">Media reviews</a>
         <ul class="navbar-nav mr-auto">
@@ -95,4 +95,4 @@
             </table>
         </div>
     </div>
-</t:bootstarpWrapper>
+</t:bootstrapWrapper>

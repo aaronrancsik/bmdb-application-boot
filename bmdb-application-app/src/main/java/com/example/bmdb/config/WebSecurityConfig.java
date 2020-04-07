@@ -30,16 +30,16 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/resources/**", "/register").permitAll()
-                    .anyRequest().authenticated()
-                    .and()
+                .antMatchers("/resources/**", "/register").permitAll()
+                .anyRequest().authenticated()
+                .and()
                 .formLogin()
-                    .loginPage("/login")
-                    .defaultSuccessUrl("/", true)
-                    .permitAll()
-                    .and()
+                .loginPage("/login")
+                .defaultSuccessUrl("/", true)
+                .permitAll()
+                .and()
                 .logout()
-                    .permitAll();
+                .permitAll();
     }
 
     @Bean

@@ -10,6 +10,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bmdb-application-service</artifactId>
-
+    <dependencies>
+        <dependency>
+            <groupId>com.example.bmdb</groupId>
+            <artifactId>bmdb-application-domain</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 </project>

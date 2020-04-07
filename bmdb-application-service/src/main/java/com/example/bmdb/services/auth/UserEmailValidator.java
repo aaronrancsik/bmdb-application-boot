@@ -17,6 +17,7 @@ public class UserEmailValidator implements Validator {
     }
 
     private UserService userService;
+
     @Inject
     public void setUserService(UserService userService) {
         this.userService = userService;

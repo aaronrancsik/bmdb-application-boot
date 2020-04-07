@@ -9,7 +9,7 @@ import org.springframework.context.support.ResourceBundleMessageSource;
 public class MessageConfig {
 
     @Bean
-    public MessageSource messageSource(){
+    public MessageSource messageSource() {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
         messageSource.addBasenames("messages/text");
         messageSource.setDefaultEncoding("UTF-8");

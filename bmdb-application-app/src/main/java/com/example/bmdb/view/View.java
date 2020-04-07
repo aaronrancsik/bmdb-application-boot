@@ -15,18 +15,21 @@ public class View {
     private Scanner in;
 
     I18nMsg i18nMsg;
+
     @Inject
     public void setI18nMsg(I18nMsg i18nMsg) {
         this.i18nMsg = i18nMsg;
     }
 
     User.UserBuilder userBuilder;
+
     @Inject
     public void setUserBuilder(User.UserBuilder userBuilder) {
         this.userBuilder = userBuilder;
     }
 
     Review.ReviewBuilder reviewBuilder;
+
     @Inject
     public void setReviewBuilder(Review.ReviewBuilder reviewBuilder) {
         this.reviewBuilder = reviewBuilder;
@@ -36,7 +39,7 @@ public class View {
         in = new Scanner(System.in);
     }
 
-    public User readUserData()  {
+    public User readUserData() {
 
         System.out.println(i18nMsg.getMsg("view.question.name"));
         userBuilder.withName(in.nextLine());
@@ -50,19 +53,19 @@ public class View {
         return userBuilder.build();
     }
 
-    public void printWelcomeMessage(User user){
-        System.out.println(i18nMsg.getMsg("view.welcome",new Object[]{ user.getName() }));
+    public void printWelcomeMessage(User user) {
+        System.out.println(i18nMsg.getMsg("view.welcome", new Object[]{user.getName()}));
     }
 
-    public void printMedias(Iterable<Media> medias){
+    public void printMedias(Iterable<Media> medias) {
         System.out.println(i18nMsg.getMsg("view.medias"));
-        for (Media m: medias){
+        for (Media m : medias) {
             System.out.println(m.toString());
         }
         System.out.println(i18nMsg.getMsg("view.get.id"));
     }
 
-    public long getIdFromConsole(){
+    public long getIdFromConsole() {
         String input = in.nextLine();
         int inputNumber = Integer.parseInt(input);
         return inputNumber;
@@ -75,33 +78,31 @@ public class View {
 
     public Rating getRatingFromConsole() {
         Rating rate = null;
-        while (rate == null){
+        while (rate == null) {
             System.out.println(i18nMsg.getMsg("view.get.rating"));
             String choosedRate = in.nextLine().toLowerCase();
-            if(choosedRate.equals(i18nMsg.getMsg("view.rate.bad"))) {
-                rate=Rating.BAD;
-            }
-            else if(choosedRate.equals(i18nMsg.getMsg("view.rate.average"))){
-                rate=Rating.AVERAGE;
-            }
-            else if(choosedRate.equals(i18nMsg.getMsg("view.rate.good"))){
-                rate=Rating.GOOD;
+            if (choosedRate.equals(i18nMsg.getMsg("view.rate.bad"))) {
+                rate = Rating.BAD;
+            } else if (choosedRate.equals(i18nMsg.getMsg("view.rate.average"))) {
+                rate = Rating.AVERAGE;
+            } else if (choosedRate.equals(i18nMsg.getMsg("view.rate.good"))) {
+                rate = Rating.GOOD;
             }
         }
         return rate;
     }
 
-    public void averageReviewsToConsole(double average){
+    public void averageReviewsToConsole(double average) {
         System.out.println(i18nMsg.getMsg("view.averageReview", average));
     }
 
     public boolean anotherReviewFromConsole() {
-        while (true){
+        while (true) {
             System.out.println(i18nMsg.getMsg("view.question.anotherReview"));
             String yesOrNo = in.nextLine();
-            if(yesOrNo.equals(i18nMsg.getMsg("view.yes"))){
+            if (yesOrNo.equals(i18nMsg.getMsg("view.yes"))) {
                 return true;
-            }else if(yesOrNo.equals(i18nMsg.getMsg("view.no"))){
+            } else if (yesOrNo.equals(i18nMsg.getMsg("view.no"))) {
                 return false;
             }
         }

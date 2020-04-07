@@ -1,13 +1,9 @@
 package com.example.bmdb.web.controller;
 
-import com.example.bmdb.services.auth.SecurityService;
 import com.example.bmdb.view.I18nMsg;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.inject.Inject;
 
@@ -15,6 +11,7 @@ import javax.inject.Inject;
 public class LoginController {
 
     private I18nMsg i18nMsg;
+
     @Inject
     public void setI18nMsg(I18nMsg i18nMsg) {
         this.i18nMsg = i18nMsg;

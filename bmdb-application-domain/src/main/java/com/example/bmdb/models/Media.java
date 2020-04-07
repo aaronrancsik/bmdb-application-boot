@@ -3,9 +3,6 @@ package com.example.bmdb.models;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
-
-import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.Objects;

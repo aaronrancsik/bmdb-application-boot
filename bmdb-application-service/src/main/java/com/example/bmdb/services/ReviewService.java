@@ -2,7 +2,6 @@ package com.example.bmdb.services;
 
 import com.example.bmdb.models.Review;
 import com.example.bmdb.repository.ReviewRepository;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 
 import javax.inject.Inject;
@@ -12,20 +11,21 @@ import java.util.Optional;
 public class ReviewService {
 
     private ReviewRepository reviewRepository;
+
     @Inject
     public void setReviewRepository(ReviewRepository reviewRepository) {
         this.reviewRepository = reviewRepository;
     }
 
-    public void save(Review review){
+    public void save(Review review) {
         reviewRepository.save(review);
     }
 
-    public void saveAll(Iterable<Review> reviews){
+    public void saveAll(Iterable<Review> reviews) {
         reviewRepository.saveAll(reviews);
     }
 
-    public Optional<Review> findById(Long id){
+    public Optional<Review> findById(Long id) {
         return reviewRepository.findById(id);
     }
 
@@ -34,7 +34,7 @@ public class ReviewService {
 //    }
 
 
-    public Iterable<Review> findAll(){
+    public Iterable<Review> findAll() {
         return reviewRepository.findAll();
     }
 

@@ -3,7 +3,7 @@
            uri = "http://java.sun.com/jsp/jstl/functions" %>
 
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
-<t:bootstarpWrapper>
+<t:bootstrapWrapper>
 
 <div class="jumbotron text-white bg-dark">
     <div class="container text-center">
@@ -15,4 +15,4 @@
 <jsp:doBody/>
 
 
-</t:bootstarpWrapper>
+</t:bootstrapWrapper>

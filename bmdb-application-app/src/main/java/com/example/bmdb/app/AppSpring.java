@@ -1,7 +1,6 @@
 package com.example.bmdb.app;
 
 
-
 import com.example.bmdb.config.AppConfig;
 
 
@@ -15,10 +14,8 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import javax.inject.Inject;
 
 
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 
 public class AppSpring {
@@ -26,12 +23,14 @@ public class AppSpring {
     private static Logger log = LoggerFactory.getLogger(AppSpring.class);
 
     private UserService userService;
+
     @Inject
     public void setUserService(UserService userService) {
         this.userService = userService;
     }
 
     private MediaService mediaService;
+
     @Inject
     public void setMediaService(MediaService mediaService) {
         this.mediaService = mediaService;
@@ -39,12 +38,14 @@ public class AppSpring {
 
 
     private MainService mainService;
+
     @Inject
     public void setMainService(MainService mainService) {
         this.mainService = mainService;
     }
 
     private View view;
+
     @Inject
     public void setView(View view) {
         log.info("setView");
@@ -56,44 +57,44 @@ public class AppSpring {
 
         log.info("launch");
         User user = createUser();
-        do{
+        do {
             view.printMedias(mediaService.findAll());
             long selectedMediaId = selectMediaId();
-            mainService.doReview(user.getName(),user.getPassword(), selectedMediaId,view.getReviewTextFromConsole(),view.getRatingFromConsole());
-        }while (view.anotherReviewFromConsole());
+            mainService.doReview(user.getName(), user.getPassword(), selectedMediaId, view.getReviewTextFromConsole(), view.getRatingFromConsole());
+        } while (view.anotherReviewFromConsole());
 
         view.printMedias(mediaService.findAll());
         long selectedMediaId = selectMediaId();
         averageReviews(selectedMediaId);
     }
 
-    
-    private User createUser(){
+
+    private User createUser() {
         view.printRegistration();
         log.info("createUser");
         User user = this.view.readUserData();
 
         try {
             userService.save(user);
-        }catch (Exception ex){
+        } catch (Exception ex) {
 
         }
         view.printWelcomeMessage(user);
         return user;
     }
 
-    private long selectMediaId(){
+    private long selectMediaId() {
         log.info("selectMedia");
         return view.getIdFromConsole();
     }
 
-    private void averageReviews(long selected){
+    private void averageReviews(long selected) {
         log.info("averageReviews");
         view.averageReviewsToConsole(mediaService.getAverageRating(selected));
     }
 
     public static void main(String[] args) {
-        try(ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)){
+        try (ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)) {
             AppSpring app = appContext.getBean(AppSpring.class);
             app.launch();
         }
